@@ -8,8 +8,8 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
-        Map m = read("grafo10.csv");
-        int[] colorsArray = dsatur(m);
+        LinkedHashMap<Integer, LinkedList<Integer>> m = read("grafo10.csv");
+        int[] degreeArray =
     }
 
     private static int[] dsatur(Map m) {
@@ -18,10 +18,10 @@ public class Main {
         return new int[0];
     }
 
-    private static Map read(String csvFile) {
+    private static LinkedHashMap<Integer, LinkedList<Integer>> read(String csvFile) {
         String row;
         String csvSeparator = ",";
-        Map<Integer, LinkedList<Integer>> vertexMap = new LinkedHashMap<>();
+        LinkedHashMap<Integer, LinkedList<Integer>> vertexMap = new LinkedHashMap<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
 
@@ -74,6 +74,34 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void calculate(LinkedHashMap<Integer, LinkedList<Integer>> m) {
+
+    }
+
+    public int[] calculateDegree(LinkedHashMap<Integer, LinkedList<Integer>> m) {
+        int[] degreeArray = new int[m.size()];
+
+        for (Map.Entry<Integer, LinkedList<Integer>> listEntry : m.entrySet()) {
+            int k = listEntry.getKey();
+            int s = listEntry.getValue().size();
+
+            degreeArray[k] = s;
+        }
+
+        return degreeArray;
+    }
+
+    public int findHighestDegreeVertex(int[] degreeArray) {
+        int highestDegKey = 0;
+
+        for (int i : degreeArray) {
+            if()
+        }
+
+        return highestDegKey;
     }
     /*
         private static void outputCSV(String sFileName) {
