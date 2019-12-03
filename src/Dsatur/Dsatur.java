@@ -7,9 +7,6 @@ package Dsatur;
 import java.io.*;
 import java.util.*;
 
-///Feito por Matheus Aeroso - 1660098
-
-
 public class Dsatur {
     static int[] degreesArray;
     static int mapSize;
