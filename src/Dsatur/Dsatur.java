@@ -42,9 +42,9 @@ public class Dsatur {
             while (resultingColor.containsKey(vertice)) {
                 vertice = Dsatur.getHighestSaturation(map, coloring);
             }
-            boolean[] coresDisponiveis = new boolean[mapSize];
+            boolean[] availableColors = new boolean[mapSize];
             for (int j = 0; j < mapSize; j++) {
-                coresDisponiveis[j] = true;
+                availableColors[j] = true;
             }
 
             int lastColor = 0;
@@ -52,11 +52,11 @@ public class Dsatur {
                 int currentVertex = coloredVertices.get(k);
                 if (Dsatur.areAdjacent(map, vertice, currentVertex)) {
                     int color = resultingColor.get(currentVertex);
-                    coresDisponiveis[color] = false;
+                    availableColors[color] = false;
                 }
             }
-            for (int j = 0; j < coresDisponiveis.length; j++) {
-                if (coresDisponiveis[j]) {
+            for (int j = 0; j < availableColors.length; j++) {
+                if (availableColors[j]) {
                     lastColor = j;
                     break;
                 }
